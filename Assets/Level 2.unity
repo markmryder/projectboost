@@ -227,6 +227,11 @@ PrefabInstance:
       propertyPath: mainThrust
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2625995955657794844, guid: f044ba04ba6c4ff43be830f4a90d8e78,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8242333004900844940, guid: f044ba04ba6c4ff43be830f4a90d8e78,
         type: 3}
       propertyPath: m_Name
