@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour
 {
@@ -37,8 +38,10 @@ public class Rocket : MonoBehaviour
             case "Friendly": print("OK");
                 break;
             case "End": print("Win");
+                SceneManager.LoadScene(1);
                 break;
             default:
+                SceneManager.LoadScene(0);
                 print("Dead");
                 break;
 
