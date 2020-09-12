@@ -210,7 +210,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8242333004900844940}
-  m_LocalRotation: {x: -0, y: 0.018517753, z: -0, w: 0.9998286}
+  m_LocalRotation: {x: 0, y: 0.018516911, z: 0, w: 0.9998286}
   m_LocalPosition: {x: 0, y: 2.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -349,7 +349,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rcsThrust: 100
-  mainThrust: 3
+  mainThrust: 100
+  levelLoadDelay: 2
   mainEngine: {fileID: 8300000, guid: da1f59c1ad629d643a7ac6557d5c5c9e, type: 3}
   death: {fileID: 8300000, guid: a375522c769779249ba19300c2f0dda5, type: 3}
   success: {fileID: 8300000, guid: 6d308a97cb507e649a8c69f80bef4f0d, type: 3}
@@ -694,17 +695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198100719057022332, guid: a3553fd250eb92d4091bebde350c6739,
         type: 3}
-      propertyPath: stopAction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198100719057022332, guid: a3553fd250eb92d4091bebde350c6739,
-        type: 3}
       propertyPath: cullingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198100719057022332, guid: a3553fd250eb92d4091bebde350c6739,
-        type: 3}
-      propertyPath: ringBufferMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

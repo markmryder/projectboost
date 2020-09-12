@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementVector: {x: 10, y: 0, z: 0}
   movementFactor: 0.45
+  period: 2
 --- !u!1001 &152174762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -363,21 +364,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7495625977586492268, guid: f044ba04ba6c4ff43be830f4a90d8e78,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2625995955657794844, guid: f044ba04ba6c4ff43be830f4a90d8e78,
-        type: 3}
-      propertyPath: prewarm
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2625995955657794844, guid: f044ba04ba6c4ff43be830f4a90d8e78,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8242333004900844940, guid: f044ba04ba6c4ff43be830f4a90d8e78,
         type: 3}
       propertyPath: m_Name
