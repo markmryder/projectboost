@@ -28,7 +28,10 @@ public class Rocket : MonoBehaviour
     [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem deathParticles;
     [SerializeField] ParticleSystem successParticles;
-    
+
+    [SerializeField] bool collisionsEnabled = true;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,11 +49,30 @@ public class Rocket : MonoBehaviour
             RespondToThrustInput();
             RespondToRotateInput();
         }
+        //todo only if debug on
+        if (Debug.isDebugBuild)
+        {
+            RespondToDebugKey();
+        }
+        
+    }
+
+    private void RespondToDebugKey()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextScene();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            //toggle collisions
+            collisionsEnabled = !collisionsEnabled;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if(state != State.ALIVE)
+        if(state != State.ALIVE || !collisionsEnabled)
         {
             return;
         }
@@ -92,11 +114,18 @@ public class Rocket : MonoBehaviour
 
     private void LoadNextScene()
     {
-        SceneManager.LoadScene(1); //TODO allow for more levels
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = sceneIndex + 1;
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     private void LoadFirstScene()
     {
+        
         SceneManager.LoadScene(0);
     }
 
