@@ -13,6 +13,8 @@ public class Pathfinder : MonoBehaviour
 
     Waypoint searchCenter;
 
+    public List<Waypoint> path = new List<Waypoint>();
+
     Vector2Int[] directions = 
     { 
         Vector2Int.up,
@@ -24,12 +26,24 @@ public class Pathfinder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadBlocks();
-        ColorStartAndEnd();
-        Pathfind();
+
     }
 
-	private void Pathfind()
+	private void CreatePath()
+	{
+        path.Add(endWaypoint);
+
+        Waypoint exploredFrom = endWaypoint.exploredFrom;
+        while(exploredFrom != startWaypoint)
+		{
+            path.Add(exploredFrom);
+            exploredFrom = exploredFrom.exploredFrom;
+		}
+        path.Add(startWaypoint);
+        path.Reverse();
+	}
+
+	private void BreadthFirstSearch()
 	{
         queue.Enqueue(startWaypoint);
         while(queue.Count > 0 && isRunning)
@@ -40,7 +54,6 @@ public class Pathfinder : MonoBehaviour
             searchCenter.isExplored = true;
  
 		}
-        //todo work out path
 	}
 
 	private void HalfIfEndFound()
@@ -48,7 +61,6 @@ public class Pathfinder : MonoBehaviour
 		if(searchCenter == endWaypoint)
 		{
             isRunning = false;
-            //print("End found at: " + search.GetGridPos());
 		}
 	}
 
@@ -61,14 +73,10 @@ public class Pathfinder : MonoBehaviour
         foreach (Vector2Int direction in directions)
 		{
 			
-            Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + direction; 
-			try
+            Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + direction;
+			if (grid.ContainsKey(neighbourCoordinates))
 			{
-				QueueNewNeighbours(neighbourCoordinates);
-			}
-			catch
-			{
-
+                QueueNewNeighbours(neighbourCoordinates);
 			}
 		}
 	}
@@ -113,6 +121,15 @@ public class Pathfinder : MonoBehaviour
             
         }
     }
+
+    public List<Waypoint> GetBestPath()
+	{
+        LoadBlocks();
+        ColorStartAndEnd();
+        BreadthFirstSearch();
+        CreatePath();
+        return path;
+	}
 
     // Update is called once per frame
     void Update()
