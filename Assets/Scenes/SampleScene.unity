@@ -1529,6 +1529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dwellTime: 1
   speed: 1
+  timeBetweenEachBlock: 1
 --- !u!4 &950840894367700329 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5226273837159133694, guid: 6ae6e9766a1a7f44e840411dfde49a28,
