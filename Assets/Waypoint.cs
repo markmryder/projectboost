@@ -8,12 +8,15 @@ public class Waypoint : MonoBehaviour
     const int gridSize = 10;
     Vector2Int gridPosition;
     public bool isExplored = false;
+    public bool isTraverable = true;
     public Waypoint exploredFrom;
     // Start is called before the first frame update
     void Start()
     {
         
     }
+
+
 
     // Update is called once per frame
     void Update()
